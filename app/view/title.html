@@ -2,9 +2,32 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Sample</title>
+    <title>TIFF-Tool</title>
+    <link rel="stylesheet" href="../css/default.css" />
   </head>
   <body>
-    <script src="../script/title-view-controller.js"></script>
+    <main>
+      <div class="connection-field">
+        <!-- 接続画面 -->
+        <input type="text" name="ip" size="30" maxlenth="20">
+        <button type="button">connect</button> <button type="button">disconnect</button>
+      </div>
+      <div class="send-field">
+        <!-- 送信ファイル -->
+        <input type="text" name="file" size="30" maxlenth="20">
+        <button type="button">send</button>
+      </div>
+      <div class="option-field">
+        <!-- オプション -->
+        <input type="checkbox" name="duplex" value="1" checked="checked">
+          <select name="両面">
+            <option>片面</option>
+            <option>長辺綴じ</option>
+            <option>短辺綴じ</option>
+          </select>
+        <textarea></textarea>
+        <button type="button">send</button>
+        </div>
+      </main>
   </body>
 </html>

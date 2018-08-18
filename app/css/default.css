@@ -24,6 +24,11 @@ div.option-field {
     background-color: #8080FF;
 }
 
+li {
+    list-style-type: none;
+    float: left;
+}
+
 div.connection-field, div.status-field, div.send-field, div.option-field {
     padding: 0.25em;
 }

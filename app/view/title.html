@@ -1,37 +1,66 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>TIFF-Tool</title>
-    <link rel="stylesheet" href="../css/default.css" />
-  </head>
-  <body>
-    <main>
-      <div class="connection-field">
-        <!-- 接続画面 -->
-        IP: <input type="text" name="ip" pattern="^\d{1,3}(\.\d{1,3}){3}$" placeholder="000.000.000.000" required/>
-        <button type="button">connect</button> <button type="button">disconnect</button>
-      </div>
-      <div class="status-field">
-        <!-- ステータス画面 -->
-        <textarea></textarea>
-      </div>
-      <div class="send-field">
-        <!-- 送信ファイル -->
-        送信ファイル: <input type="text" name="file" size="50" maxlenth="40">
-        <button type="button">send</button>
-      </div>
-      <div class="option-field">
-        <!-- オプション -->
-        <input type="checkbox" name="duplex" value="1" checked="checked">
+
+<head>
+  <meta charset="UTF-8">
+  <title>TIFF-Tool</title>
+  <link rel="stylesheet" href="../css/default.css" />
+</head>
+
+<body>
+  <main>
+    <div class="connection-field">
+      <!-- 接続画面 -->
+      IP:
+      <input type="text" name="ip" pattern="^\d{1,3}(\.\d{1,3}){3}$" placeholder="000.000.000.000" required/>
+      <button type="button">connect</button>
+      <button type="button">disconnect</button>
+    </div>
+    <div class="status-field">
+      <!-- ステータス画面 -->
+      <textarea></textarea>
+    </div>
+    <div class="send-field">
+      <!-- 送信ファイル -->
+      送信ファイル:
+      <input type="text" name="file" size="50" maxlenth="40">
+      <button type="button">send</button>
+    </div>
+    <div class="option-field">
+      <!-- オプション -->
+      <ul>
+        <li>
+          <input type="checkbox" name="duplex" value="1">
           <select name="両面">
             <option>片面</option>
             <option>長辺綴じ</option>
             <option>短辺綴じ</option>
           </select>
-        <textarea></textarea>
-        <button type="button">send</button>
-      </div>
-    </main>
-  </body>
+        </li>
+        <li>
+          <input type="checkbox" name="tray" value="1">
+          <select name="給紙トレイ">
+            <option>トレイ1</option>
+            <option>トレイ2</option>
+            <option>トレイ3</option>
+          </select>
+        </li>
+        <li>
+          <input type="checkbox" name="paper" value="1">
+          <select name="用紙">
+            <option>A4 LEF</option>
+            <option>A4 SEF</option>
+            <option>A3 SEF</option>
+          </select>
+          <select name="紙種">
+            <option>plain</option>
+            <option>recycled</option>
+          </select>
+        </li>
+      </ul>
+      <button type="button">send</button>
+    </div>
+  </main>
+</body>
+
 </html>

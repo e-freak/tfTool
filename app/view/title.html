@@ -9,12 +9,16 @@
     <main>
       <div class="connection-field">
         <!-- 接続画面 -->
-        <input type="text" name="ip" size="30" maxlenth="20">
+        IP: <input type="text" name="ip" pattern="^\d{1,3}(\.\d{1,3}){3}$" placeholder="000.000.000.000" required/>
         <button type="button">connect</button> <button type="button">disconnect</button>
+      </div>
+      <div class="status-field">
+        <!-- ステータス画面 -->
+        <textarea></textarea>
       </div>
       <div class="send-field">
         <!-- 送信ファイル -->
-        <input type="text" name="file" size="30" maxlenth="20">
+        送信ファイル: <input type="text" name="file" size="50" maxlenth="40">
         <button type="button">send</button>
       </div>
       <div class="option-field">
@@ -27,7 +31,7 @@
           </select>
         <textarea></textarea>
         <button type="button">send</button>
-        </div>
-      </main>
+      </div>
+    </main>
   </body>
 </html>

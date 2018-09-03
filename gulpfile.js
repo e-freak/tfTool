@@ -44,3 +44,10 @@ gulp.task('unit-test', () => {
         process.exit();
     });
 });
+
+gulp.task('default', defaultTask);
+
+function defaultTask(done) {
+  // place code for your default task here
+  done();
+}

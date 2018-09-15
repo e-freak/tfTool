@@ -4,8 +4,6 @@
  * @author rinoue
  */
 
-'use strict';
-
 import TitleViewContoller from '../script/title-view-controller';
 
 global.window.addEventListener('DOMContentLoaded', function () {

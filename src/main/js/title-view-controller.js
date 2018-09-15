@@ -4,8 +4,6 @@
  * @author rinoue
  */
 
-'use strict';
-
 import ConnectionClient from '../script/connection-client';
 
 export default class TitleViewController {
@@ -22,17 +20,27 @@ export default class TitleViewController {
         }
 
         onClickConnectButton() {
-                console.log('connect-button');
-                this._client.connect();
+                this._addLog('connect ' + this._view.getElementsByName('ip')[0].value);
+                this._client.connect(
+                        this._view.getElementsByName('ip')[0].value,
+                        this._view.getElementsByName('name')[0].value,
+                        this._view.getElementsByName('password')[0].value
+                );
         }
 
         onClickDisconnectButton() {
-                console.log('disconnect-button');
+                this._addLog('disconnect');
                 this._client.disconnect();
         }
 
         onClickSendButton() {
                 console.log('send-button');
                 this._client.send();
+        }
+
+        _addLog(string = "") {
+                const m = this._view.getElementById('ftp-log');
+                m.value = m.value + '\n' + string;
+                m.scrollTop = m.scrollHeight;
         }
 }

@@ -10,11 +10,11 @@ export default class ConnectionClient {
                 this._client = new Client();
         }
 
-        connect() {
+        connect(host, name="defaultname", password) {
                 this._client.connect({
-                        host: '10.247.83.78',
-                        name: 'name',
-                        password: '',
+                        host: host,
+                        user: name,
+                        password: password,
                 });
 
                 this._client.on('ready', () => {

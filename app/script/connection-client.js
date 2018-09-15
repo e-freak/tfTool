@@ -24,11 +24,13 @@ var ConnectionClient = (function () {
 
         _createClass(ConnectionClient, [{
                 key: 'connect',
-                value: function connect() {
+                value: function connect(host, name, password) {
+                        if (name === undefined) name = "defaultname";
+
                         this._client.connect({
-                                host: '10.247.83.78',
-                                name: 'name',
-                                password: ''
+                                host: host,
+                                user: name,
+                                password: password
                         });
 
                         this._client.on('ready', function () {

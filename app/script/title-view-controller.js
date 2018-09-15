@@ -39,13 +39,13 @@ var TitleViewController = (function () {
         }, {
                 key: 'onClickConnectButton',
                 value: function onClickConnectButton() {
-                        console.log('connect-button');
-                        this._client.connect();
+                        this._addLog('connect ' + this._view.getElementsByName('ip')[0].value);
+                        this._client.connect(this._view.getElementsByName('ip')[0].value, this._view.getElementsByName('name')[0].value, this._view.getElementsByName('password')[0].value);
                 }
         }, {
                 key: 'onClickDisconnectButton',
                 value: function onClickDisconnectButton() {
-                        console.log('disconnect-button');
+                        this._addLog('disconnect');
                         this._client.disconnect();
                 }
         }, {
@@ -53,6 +53,15 @@ var TitleViewController = (function () {
                 value: function onClickSendButton() {
                         console.log('send-button');
                         this._client.send();
+                }
+        }, {
+                key: '_addLog',
+                value: function _addLog() {
+                        var string = arguments.length <= 0 || arguments[0] === undefined ? "" : arguments[0];
+
+                        var m = this._view.getElementById('ftp-log');
+                        m.value = m.value + '\n' + string;
+                        m.scrollTop = m.scrollHeight;
                 }
         }]);
 

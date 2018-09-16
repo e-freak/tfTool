@@ -47,9 +47,13 @@ var ConnectionClient = (function () {
                         this._client.end();
                 }
         }, {
-                key: 'send',
-                value: function send() {
-                        this._client.put();
+                key: 'sendFile',
+                value: function sendFile(filePath) {
+                        var slice = filePath.split('\\');
+                        console.log('put ' + slice[slice.length - 1]);
+                        this._client.put(filePath, slice[slice.length - 1], function (err) {
+                                if (err) throw err;
+                        });
                 }
         }]);
 

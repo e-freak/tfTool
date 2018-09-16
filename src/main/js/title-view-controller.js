@@ -17,6 +17,10 @@ export default class TitleViewController {
                 this._view.getElementById('connect-button').addEventListener('click', this.onClickConnectButton.bind(this));
                 this._view.getElementById('disconnect-button').addEventListener('click', this.onClickDisconnectButton.bind(this));
                 this._view.getElementById('send-button').addEventListener('click', this.onClickSendButton.bind(this));
+                this._view.ondragover = this._view.ondrop = function (e) {
+                        e.preventDefault();
+                };
+                this._view.getElementsByName('file')[0].addEventListener('drop', this.onDropfile.bind(this));
         }
 
         onClickConnectButton() {
@@ -35,7 +39,21 @@ export default class TitleViewController {
 
         onClickSendButton() {
                 console.log('send-button');
-                this._client.send();
+                const filePath = this._view.getElementsByName('file')[0].value;
+                if ( filePath == '') {
+                        console.log('nofile');
+                } else {
+                        this._client.sendFile(filePath);
+                        this._addLog('put ' + filePath);
+                }
+        }
+
+        onDropfile(e) {
+                console.log('drop-file');
+
+                const file = e.dataTransfer.files[0];
+                this._view.getElementsByName('file')[0].value = file.path;
+                console.log(file.path);
         }
 
         _addLog(string = "") {

@@ -10,7 +10,7 @@ export default class ConnectionClient {
                 this._client = new Client();
         }
 
-        connect(host, name="defaultname", password) {
+        connect(host, name = "defaultname", password) {
                 this._client.connect({
                         host: host,
                         user: name,
@@ -30,7 +30,11 @@ export default class ConnectionClient {
                 this._client.end();
         }
 
-        send() {
-                this._client.put();
+        sendFile(filePath) {
+                const slice = filePath.split('\\');
+                console.log('put ' + slice[slice.length - 1]);
+                this._client.put(filePath, slice[slice.length - 1], err => {
+                        if (err) throw err;
+                });
         }
 }

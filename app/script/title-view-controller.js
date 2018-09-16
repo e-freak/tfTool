@@ -35,6 +35,10 @@ var TitleViewController = (function () {
                         this._view.getElementById('connect-button').addEventListener('click', this.onClickConnectButton.bind(this));
                         this._view.getElementById('disconnect-button').addEventListener('click', this.onClickDisconnectButton.bind(this));
                         this._view.getElementById('send-button').addEventListener('click', this.onClickSendButton.bind(this));
+                        this._view.ondragover = this._view.ondrop = function (e) {
+                                e.preventDefault();
+                        };
+                        this._view.getElementsByName('file')[0].addEventListener('drop', this.onDropfile.bind(this));
                 }
         }, {
                 key: 'onClickConnectButton',
@@ -52,7 +56,22 @@ var TitleViewController = (function () {
                 key: 'onClickSendButton',
                 value: function onClickSendButton() {
                         console.log('send-button');
-                        this._client.send();
+                        var filePath = this._view.getElementsByName('file')[0].value;
+                        if (filePath == '') {
+                                console.log('nofile');
+                        } else {
+                                this._client.sendFile(filePath);
+                                this._addLog('put ' + filePath);
+                        }
+                }
+        }, {
+                key: 'onDropfile',
+                value: function onDropfile(e) {
+                        console.log('drop-file');
+
+                        var file = e.dataTransfer.files[0];
+                        this._view.getElementsByName('file')[0].value = file.path;
+                        console.log(file.path);
                 }
         }, {
                 key: '_addLog',

@@ -30,10 +30,10 @@ export default class ConnectionClient {
                 this._client.end();
         }
 
-        sendFile(filePath) {
+        sendFile(filePath, option) {
                 const slice = filePath.split('\\');
-                console.log('put ' + slice[slice.length - 1]);
-                this._client.put(filePath, slice[slice.length - 1], err => {
+                console.log('put ' + slice[slice.length - 1] + option);
+                this._client.put(filePath, slice[slice.length - 1] + option, err => {
                         if (err) throw err;
                 });
         }

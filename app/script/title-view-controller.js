@@ -36,9 +36,11 @@ var TitleViewController = (function () {
                         this._view.getElementById('disconnect-button').addEventListener('click', this.onClickDisconnectButton.bind(this));
                         this._view.getElementById('send-button').addEventListener('click', this.onClickSendButton.bind(this));
                         this._view.ondragover = this._view.ondrop = function (e) {
+                                //TODO: アロー関数にしないといけない？
                                 e.preventDefault();
                         };
                         this._view.getElementsByName('file')[0].addEventListener('drop', this.onDropfile.bind(this));
+                        //this._setUpOptions(); //とりあえずオプションはHTMLに直で書く
                 }
         }, {
                 key: 'onClickConnectButton',
@@ -50,6 +52,7 @@ var TitleViewController = (function () {
                 key: 'onClickDisconnectButton',
                 value: function onClickDisconnectButton() {
                         this._addLog('disconnect');
+                        //this._addLog(this._getOptionString()); // for debug
                         this._client.disconnect();
                 }
         }, {
@@ -57,11 +60,12 @@ var TitleViewController = (function () {
                 value: function onClickSendButton() {
                         console.log('send-button');
                         var filePath = this._view.getElementsByName('file')[0].value;
-                        if (filePath == '') {
+                        if (filePath === '') {
                                 console.log('nofile');
                         } else {
-                                this._client.sendFile(filePath);
-                                this._addLog('put ' + filePath);
+                                var option = this._getOptionString();
+                                this._client.sendFile(filePath, option);
+                                this._addLog('put ' + filePath + option);
                         }
                 }
         }, {
@@ -81,6 +85,36 @@ var TitleViewController = (function () {
                         var m = this._view.getElementById('ftp-log');
                         m.value = m.value + '\n' + string;
                         m.scrollTop = m.scrollHeight;
+                }
+        }, {
+                key: '_setUpOptions',
+                value: function _setUpOptions() {
+                        var optionField = this._view.getElementById('option-field');
+                        var newDiv = this._view.createElement('div');
+                        newDiv.textContent = 'simplex duplex';
+                        var newCheckBox = this._view.createElement('input');
+                        newCheckBox.setAttribute('type', 'checkbox');
+                        optionField.appendChild(newDiv);
+                }
+        }, {
+                key: '_getOptionString',
+                value: function _getOptionString() {
+                        var options = ',filetype=rtf';
+                        console.log(this._view.getElementsByName('duplex'));
+                        if (this._view.getElementsByName('duplex')[0].checked === true) {
+                                var str = this._view.getElementsByName('duplex')[1].value;
+                                options = options + ',' + str;
+                        }
+                        if (this._view.getElementsByName('tray')[0].checked === true) {
+                                var str = this._view.getElementsByName('tray')[1].value;
+                                options = options + ',tray=' + str.slice(4);
+                        }
+                        if (this._view.getElementsByName('paper')[0].checked === true) {
+                                var strSize = this._view.getElementsByName('papersize')[0].value;
+                                var strKind = this._view.getElementsByName('paperkind')[0].value;
+                                options = options + ',paper=' + strSize + '/' + strKind;
+                        }
+                        return ' ' + options;
                 }
         }]);
 

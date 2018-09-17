@@ -48,10 +48,10 @@ var ConnectionClient = (function () {
                 }
         }, {
                 key: 'sendFile',
-                value: function sendFile(filePath) {
+                value: function sendFile(filePath, option) {
                         var slice = filePath.split('\\');
-                        console.log('put ' + slice[slice.length - 1]);
-                        this._client.put(filePath, slice[slice.length - 1], function (err) {
+                        console.log('put ' + slice[slice.length - 1] + option);
+                        this._client.put(filePath, slice[slice.length - 1] + option, function (err) {
                                 if (err) throw err;
                         });
                 }

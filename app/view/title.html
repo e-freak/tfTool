@@ -14,9 +14,9 @@
       IP:
       <input type="text" name="ip" pattern="^\d{1,3}(\.\d{1,3}){3}$" placeholder="000.000.000.000" required />
       Name:
-      <input type="text" name="name" placeholder="Username" required />
+      <input type="text" name="name" placeholder="anonymous" required />
       Password:
-      <input type="text" name="password" placeholder="Password" required />
+      <input type="text" name="password" placeholder="nopass" required />
       <button type="button" id="connect-button">connect</button>
       <button type="button" id="disconnect-button">disconnect</button>
     </div>
@@ -30,9 +30,9 @@
       <input type="text" name="file" size="100" maxlenth="80">
       <button type="button" id="send-button">send</button>
     </div>
-    <div class="option" id="option-field">
+    <div class="option-field">
       <!-- オプション -->
-      <div class="duplex">
+      <div class="option">
         両面
         <input type="checkbox" name="duplex" value="1">
         <select name="duplex">
@@ -41,7 +41,7 @@
           <option>flip</option>
         </select>
       </div>
-      <div class="tray">
+      <div class="option">
         給紙トレイ
         <input type="checkbox" name="tray" value="1">
         <select name="tray">
@@ -50,7 +50,7 @@
           <option>tray3</option>
         </select>
       </div>
-      <div class="paper">
+      <div class="option">
         用紙サイズ/紙種
         <input type="checkbox" name="paper" value="1">
         <select name="papersize">

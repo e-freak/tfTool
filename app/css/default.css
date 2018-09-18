@@ -20,9 +20,16 @@ div.send-field {
     background-color: #80FF80;
 }
 
-div.option {
+div.option-field {
     background-color: #8080FF;
-    display:block;
+    display:flex;
+    flex-wrap:wrap;
+}
+
+div.option {
+   padding: 10px;
+   width: 25%;
+   box-sizing: border-box;
 }
 
 div.connection-field, div.status-field, div.send-field, div.option {

@@ -75,12 +75,57 @@ export default class TitleViewController {
         }
 
         _getOptionString() {
-                let options = ',filetype=rtf';
-                console.log(this._view.getElementsByName('duplex'));
-                if (this._view.getElementsByName('duplex')[0].checked === true) {
-                        const str = this._view.getElementsByName('duplex')[1].value;
-                        options = options + ',' + str;
+                const optionNameArray = [
+                        'autotray',
+                        'direction',
+                        'duplex',
+                        'resolution',
+                        'negaposi',
+                        'centering',
+                        'fit',
+                        'tifffit',
+                        'errormessage',
+                        'printarea',
+                        'diskbuffer',
+                        'magprocess'
+                ]; // そのままオプションになるタイプ
+                const optionNameArray2 = [
+                        'filetype',
+                        'bin',
+                        'copies',
+                        'mag',
+                        'leftspace',
+                        'rightspace',
+                        'topspace',
+                        'bottomspace',
+                        'xoffset',
+                        'yoffset',
+                        'xmargin',
+                        'ymargin',
+                        'multicols',
+                        'multirows',
+                        'xmag',
+                        'ymag',
+                        'brightness',
+                        'contrast',
+                        'orientation',
+                        'autoreduce'
+                ]; // option=選択肢 になるタイプ
+
+                let options = '';
+                for (const optionString of optionNameArray) {
+                        if (this._view.getElementsByName(optionString)[0].checked === true) {
+                                const str = this._view.getElementsByName(optionString)[1].value;
+                                options = options + ',' + str;
+                        }
                 }
+                for (const optionString of optionNameArray2) {
+                        if (this._view.getElementsByName(optionString)[0].checked === true) {
+                                const str = this._view.getElementsByName(optionString)[1].value;
+                                options = options + ',' + optionString + '=' + str;
+                        }
+                }
+
                 if (this._view.getElementsByName('tray')[0].checked === true) {
                         const str = this._view.getElementsByName('tray')[1].value;
                         options = options + ',tray=' + str.slice(4);
@@ -89,6 +134,17 @@ export default class TitleViewController {
                         const strSize = this._view.getElementsByName('papersize')[0].value;
                         const strKind = this._view.getElementsByName('paperkind')[0].value;
                         options = options + ',paper=' + strSize + '/' + strKind;
+                }
+                if (this._view.getElementsByName('autopaper')[0].checked === true) {
+                        const strSize = this._view.getElementsByName('autopapersize')[0].value;
+                        const strKind = this._view.getElementsByName('autopaperkind')[0].value;
+                        const strTrans = this._view.getElementsByName('autopapertrans')[0].value;
+                        options = options + ',paper=' + strSize + '/' + strKind + '/' + strTrans;
+                }
+                if (this._view.getElementsByName('freesize')[0].checked === true) { //TODO 
+                        const strWidth = '210';
+                        const strHeight = '297';
+                        options = options + ',freesize=' + strWidth + 'x' + strHeight;
                 }
                 return ' ' + options;
         }

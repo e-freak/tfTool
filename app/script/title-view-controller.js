@@ -52,8 +52,8 @@ var TitleViewController = (function () {
                 key: 'onClickDisconnectButton',
                 value: function onClickDisconnectButton() {
                         this._addLog('disconnect');
-                        //this._addLog(this._getOptionString()); // for debug
-                        this._client.disconnect();
+                        this._addLog(this._getOptionString()); // for debug
+                        //this._client.disconnect();
                 }
         }, {
                 key: 'onClickSendButton',
@@ -99,12 +99,66 @@ var TitleViewController = (function () {
         }, {
                 key: '_getOptionString',
                 value: function _getOptionString() {
-                        var options = ',filetype=rtf';
-                        console.log(this._view.getElementsByName('duplex'));
-                        if (this._view.getElementsByName('duplex')[0].checked === true) {
-                                var str = this._view.getElementsByName('duplex')[1].value;
-                                options = options + ',' + str;
+                        var optionNameArray = ['autotray', 'direction', 'duplex', 'resolution', 'negaposi', 'centering', 'fit', 'tifffit', 'errormessage', 'printarea', 'diskbuffer', 'magprocess']; // そのままオプションになるタイプ
+                        var optionNameArray2 = ['filetype', 'bin', 'copies', 'mag', 'leftspace', 'rightspace', 'topspace', 'bottomspace', 'xoffset', 'yoffset', 'xmargin', 'ymargin', 'multicols', 'multirows', 'xmag', 'ymag', 'brightness', 'contrast', 'orientation', 'autoreduce']; // option=選択肢 になるタイプ
+
+                        var options = '';
+                        var _iteratorNormalCompletion = true;
+                        var _didIteratorError = false;
+                        var _iteratorError = undefined;
+
+                        try {
+                                for (var _iterator = optionNameArray[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                                        var optionString = _step.value;
+
+                                        if (this._view.getElementsByName(optionString)[0].checked === true) {
+                                                var str = this._view.getElementsByName(optionString)[1].value;
+                                                options = options + ',' + str;
+                                        }
+                                }
+                        } catch (err) {
+                                _didIteratorError = true;
+                                _iteratorError = err;
+                        } finally {
+                                try {
+                                        if (!_iteratorNormalCompletion && _iterator['return']) {
+                                                _iterator['return']();
+                                        }
+                                } finally {
+                                        if (_didIteratorError) {
+                                                throw _iteratorError;
+                                        }
+                                }
                         }
+
+                        var _iteratorNormalCompletion2 = true;
+                        var _didIteratorError2 = false;
+                        var _iteratorError2 = undefined;
+
+                        try {
+                                for (var _iterator2 = optionNameArray2[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+                                        var optionString = _step2.value;
+
+                                        if (this._view.getElementsByName(optionString)[0].checked === true) {
+                                                var str = this._view.getElementsByName(optionString)[1].value;
+                                                options = options + ',' + optionString + '=' + str;
+                                        }
+                                }
+                        } catch (err) {
+                                _didIteratorError2 = true;
+                                _iteratorError2 = err;
+                        } finally {
+                                try {
+                                        if (!_iteratorNormalCompletion2 && _iterator2['return']) {
+                                                _iterator2['return']();
+                                        }
+                                } finally {
+                                        if (_didIteratorError2) {
+                                                throw _iteratorError2;
+                                        }
+                                }
+                        }
+
                         if (this._view.getElementsByName('tray')[0].checked === true) {
                                 var str = this._view.getElementsByName('tray')[1].value;
                                 options = options + ',tray=' + str.slice(4);
@@ -113,6 +167,18 @@ var TitleViewController = (function () {
                                 var strSize = this._view.getElementsByName('papersize')[0].value;
                                 var strKind = this._view.getElementsByName('paperkind')[0].value;
                                 options = options + ',paper=' + strSize + '/' + strKind;
+                        }
+                        if (this._view.getElementsByName('autopaper')[0].checked === true) {
+                                var strSize = this._view.getElementsByName('autopapersize')[0].value;
+                                var strKind = this._view.getElementsByName('autopaperkind')[0].value;
+                                var strTrans = this._view.getElementsByName('autopapertrans')[0].value;
+                                options = options + ',paper=' + strSize + '/' + strKind + '/' + strTrans;
+                        }
+                        if (this._view.getElementsByName('freesize')[0].checked === true) {
+                                //TODO
+                                var strWidth = '210';
+                                var strHeight = '297';
+                                options = options + ',freesize=' + strWidth + 'x' + strHeight;
                         }
                         return ' ' + options;
                 }

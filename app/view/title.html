@@ -33,12 +33,11 @@
     <div class="option-field">
       <!-- オプション -->
       <div class="option">
-        両面
-        <input type="checkbox" name="duplex" value="1">
-        <select name="duplex">
-          <option>singleside</option>
-          <option>bothside</option>
-          <option>flip</option>
+        ファイルタイプ
+        <input type="checkbox" name="filetype" value="1" checked="checked">
+        <select name="filetype">
+          <option>rtf</option>
+          <option>mediaprinttiff</option>
         </select>
       </div>
       <div class="option">
@@ -61,6 +60,313 @@
         <select name="paperkind">
           <option>plain</option>
           <option>recycled</option>
+        </select>
+      </div>
+      <div class="option">
+        排紙トレイ
+        <input type="checkbox" name="bin" value="1">
+        <select name="bin">
+          <option>0</option>
+          <option>1</option>
+        </select>
+      </div>
+      <div class="option">
+        排紙トレイ
+        <input type="checkbox" name="bin" value="1">
+        <select name="bin">
+          <option>0</option>
+          <option>1</option>
+        </select>
+      </div>
+
+      <div class="option">
+        トレイ切り替え
+        <input type="checkbox" name="autotray" value="1">
+        <select name="autotray">
+          <option>autotray</option>
+          <option>noautotray</option>
+        </select>
+      </div>
+      <div class="option">
+        画像向き
+        <input type="checkbox" name="direction" value="1">
+        <select name="direction">
+          <option>portrait</option>
+          <option>landscape</option>
+        </select>
+      </div>
+      <div class="option">
+        両面
+        <input type="checkbox" name="duplex" value="1">
+        <select name="duplex">
+          <option>singleside</option>
+          <option>bothside</option>
+          <option>flip</option>
+        </select>
+      </div>
+      <div class="option">
+        部数
+        <input type="checkbox" name="copies" value="1">
+        <select name="copies">
+          <option>1</option>
+          <option>2</option>
+          <option>999</option>
+        </select>
+      </div>
+      <div class="option">
+        解像度
+        <input type="checkbox" name="resolution" value="1">
+        <select name="resolution">
+          <option>600dpi</option>
+          <option>200dpi</option>
+          <option>300dpi</option>
+          <option>400dpi</option>
+        </select>
+      </div>
+      <div class="option">
+        変倍
+        <input type="checkbox" name="mag" value="1">
+        <select name="mag">
+          <option>1.00</option>
+          <option>0.02</option>
+          <option>500</option>
+          <option>a3</option>
+          <option>a4</option>
+          <option>a5</option>
+        </select>
+      </div>
+      <div class="option">
+        左余白
+        <input type="checkbox" name="leftspace" value="1">
+        <select name="leftspace">
+          <option>0</option>
+          <option>-30</option>
+          <option>30</option>
+        </select>
+      </div>
+      <div class="option">
+        右余白
+        <input type="checkbox" name="rightspace" value="1">
+        <select name="rightspace">
+          <option>0</option>
+          <option>-30</option>
+          <option>30</option>
+        </select>
+      </div>
+      <div class="option">
+        上余白
+        <input type="checkbox" name="topspace" value="1">
+        <select name="topspace">
+          <option>0</option>
+          <option>-30</option>
+          <option>30</option>
+        </select>
+      </div>
+      <div class="option">
+        下余白
+        <input type="checkbox" name="bottomspace" value="1">
+        <select name="bottomspace">
+          <option>0</option>
+          <option>-30</option>
+          <option>30</option>
+        </select>
+      </div>
+      <div class="option">
+        Xオフセット
+        <input type="checkbox" name="xoffset" value="1">
+        <select name="xoffset">
+          <option>0</option>
+          <option>-100</option>
+          <option>100</option>
+        </select>
+      </div>
+      <div class="option">
+        Yオフセット
+        <input type="checkbox" name="yoffset" value="1">
+        <select name="yoffset">
+          <option>0</option>
+          <option>-100</option>
+          <option>100</option>
+        </select>
+      </div>
+      <div class="option">
+        Xマージン
+        <input type="checkbox" name="xmargin" value="1">
+        <select name="xmargin">
+          <option>0</option>
+          <option>-100</option>
+          <option>100</option>
+        </select>
+      </div>
+      <div class="option">
+        Yマージン
+        <input type="checkbox" name="ymargin" value="1">
+        <select name="ymargin">
+          <option>0</option>
+          <option>-100</option>
+          <option>100</option>
+        </select>
+      </div>
+      <div class="option">
+        マルチカラム
+        <input type="checkbox" name="multicols" value="1">
+        <select name="multicols">
+          <option>1</option>
+          <option>10</option>
+        </select>
+      </div>
+      <div class="option">
+        マルチロー
+        <input type="checkbox" name="multirows" value="1">
+        <select name="multirows">
+          <option>1</option>
+          <option>10</option>
+        </select>
+      </div>
+      <div class="option">
+        X倍率
+        <input type="checkbox" name="xmag" value="1">
+        <select name="xmag">
+          <option>1</option>
+          <option>0.002</option>
+          <option>500</option>
+        </select>
+      </div>
+      <div class="option">
+        Y倍率
+        <input type="checkbox" name="ymag" value="1">
+        <select name="ymag">
+          <option>1</option>
+          <option>0.002</option>
+          <option>500</option>
+        </select>
+      </div>
+      <div class="option">
+        白黒反転
+        <input type="checkbox" name="negaposi" value="1">
+        <select name="negaposi">
+          <option>negative</option>
+          <option>positive</option>
+        </select>
+      </div>
+      <div class="option">
+        明るさ
+        <input type="checkbox" name="brightness" value="1">
+        <select name="brightness">
+          <option>1</option>
+          <option>0.01</option>
+          <option>999</option>
+        </select>
+      </div>
+      <div class="option">
+        コントラスト
+        <input type="checkbox" name="contrast" value="1">
+        <select name="contrast">
+          <option>1</option>
+          <option>0.01</option>
+          <option>999</option>
+        </select>
+      </div>
+      <div class="option">
+        センタリング
+        <input type="checkbox" name="centering" value="1">
+        <select name="centering">
+          <option>center</option>
+          <option>nocenter</option>
+        </select>
+      </div>
+      <div class="option">
+        FIT
+        <input type="checkbox" name="fit" value="1">
+        <select name="fit">
+          <option>fit</option>
+          <option>nofit</option>
+        </select>
+      </div>
+      <div class="option">
+        TIFFFIT
+        <input type="checkbox" name="tifffit" value="1">
+        <select name="tifffit">
+          <option>tifffit</option>
+          <option>notifffit</option>
+        </select>
+      </div>
+      <div class="option">
+        AutoPaper
+        <input type="checkbox" name="autopaper" value="1">
+        <select name="autopapersize">
+          <option>a4r</option>
+          <option>a4</option>
+          <option>a5r</option>
+        </select>
+        <select name="autopaperkind">
+          <option>normal</option>
+          <option>normal2</option>
+        </select>
+        <select name="autopapertrans">
+          <option>0</option>
+          <option>-99</option>
+          <option>100</option>
+        </select>
+      </div>
+      <div class="option">
+        不定形
+        <input type="checkbox" name="freesize" value="1">
+        <select name="freesize">
+          <option>210x297</option>
+        </select>
+      </div>
+      <div class="option">
+        エラーメッセージ
+        <input type="checkbox" name="errormessage" value="1">
+        <select name="errormessage">
+          <option>errorprint</option>
+          <option>noerrorprint</option>
+        </select>
+      </div>
+      <div class="option">
+        印刷領域
+        <input type="checkbox" name="printarea" value="1">
+        <select name="printarea">
+          <option>maxarea</option>
+          <option>normalarea</option>
+        </select>
+      </div>
+      <div class="option">
+        ディスクバッファ
+        <input type="checkbox" name="diskbuffer" value="1">
+        <select name="diskbuffer">
+          <option>diskbuffer</option>
+          <option>memorybuffer</option>
+        </select>
+      </div>
+      <div class="option">
+        画像方向
+        <input type="checkbox" name="orientation" value="1">
+        <select name="orientation">
+          <option>0</option>
+          <option>90</option>
+          <option>180</option>
+          <option>270</option>
+        </select>
+      </div>
+      <div class="option">
+        autoreduce
+        <input type="checkbox" name="autoreduce" value="1">
+        <select name="autoreduce">
+          <option>a3</option>
+          <option>a4</option>
+          <option>a5</option>
+        </select>
+      </div>
+      <div class="option">
+        画像走査補正変倍
+        <input type="checkbox" name="magprocess" value="1">
+        <select name="magprocess">
+          <option>magprocessxy</option>
+          <option>magprocess</option>
+          <option>magprocessx</option>
+          <option>magprocessy</option>
         </select>
       </div>
     </div>

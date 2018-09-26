@@ -8,6 +8,10 @@ body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+label, input[type='checkbox'] {
+    cursor: pointer;
+}
+
 div.connection-field {
     background-color: #FF8080;
 }
@@ -29,7 +33,31 @@ div.option-field {
 div.option {
    padding: 10px;
    width: 25%;
+   display: flex;
+   justify-content: flex-start; /* 左そろえ */
    box-sizing: border-box;
+}
+
+div.option-value {
+    margin-left: auto;
+}
+
+div.exception-option-field {
+    background-color: #8080FF;
+    display:flex;
+    flex-wrap:wrap;
+}
+
+div.paper-option, div.autopaper-option {
+    padding: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start; /* 左そろえ */
+    box-sizing: border-box;
+}
+
+div.paper-option-value, div.autopaper-option-value {
+    margin-left: 20px;
 }
 
 div.connection-field, div.status-field, div.send-field, div.option {
@@ -41,6 +69,10 @@ textarea {
     height: 100px;
     width: 750px;
     overflow-y: scroll;
+}
+
+select {
+    width:120px;
 }
 
 button.menu {

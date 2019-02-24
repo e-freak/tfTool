@@ -1,0 +1,1 @@
+./node_modules/.bin/electron-packager ./ tfTool --platform=win32 --arch=x64

@@ -2,22 +2,22 @@
   "name": "tftool",
   "version": "1.0.0",
   "description": "",
-  "main": "rfTool.js",
+  "main": "rtTool.js",
   "dependencies": {
     "babel-core": "^6.26.3",
-    "electron": "^2.0.6"
+    "ftp": "^0.3.10"
   },
   "devDependencies": {
     "asar": "^0.14.3",
     "electron-packager": "^12.1.0",
-    "ftp": "^0.3.10",
     "gulp": "^3.9.1",
     "gulp-babel": "^5.3.0",
     "gulp-load-plugins": "^1.5.0",
     "gulp-mocha": "^6.0.0",
     "gulp-util": "^3.0.8",
     "mocha": "^5.2.0",
-    "through2": "^2.0.3"
+    "through2": "^2.0.3",
+    "electron": "^2.0.8"
   },
   "scripts": {
     "compile": "./node_modules/.bin/gulp compile",

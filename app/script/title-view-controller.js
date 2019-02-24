@@ -52,8 +52,8 @@ var TitleViewController = (function () {
                 key: 'onClickDisconnectButton',
                 value: function onClickDisconnectButton() {
                         this._addLog('disconnect');
-                        this._addLog(this._getOptionString()); // for debug
-                        //this._client.disconnect();
+                        //this._addLog(this._getOptionString()); // for debug
+                        this._client.disconnect();
                 }
         }, {
                 key: 'onClickSendButton',
